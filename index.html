@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Retro Videogame Arcade Bar & Event Space</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2300f3ff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect x='4' y='14' width='16' height='6' rx='2'></rect><path d='M12 14v-8'></path><circle cx='12' cy='4' r='2' fill='%23ff007f' stroke='%23ff007f'></circle></svg>">
+  <meta name="description" content="Experience nostalgic 8-bit gaming, craft tap lists, and weekly high-score leaderboards at our premium Retro Arcade Bar and Event Space.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Press+Start+2P&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="sections.css">
+</head>
+<body class="dark-theme">
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-container">
+      <div class="logo">
+        <a href="index.html" style="display: flex; align-items: center; gap: 8px;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--neon-cyan)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="14" width="16" height="6" rx="2"></rect><path d="M12 14v-8"></path><circle cx="12" cy="4" r="2" fill="var(--neon-pink)" stroke="var(--neon-pink)"></circle></svg>
+          <span class="logo-text">ARCADE<span class="neon-cyan">BAR</span></span>
+        </a>
+      </div>
+
+      <button class="hamburger" id="hamburger-btn" aria-label="Toggle Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      
+      <nav class="nav-links">
+        <div class="dropdown">
+          <button class="dropbtn active">Home <span class="arrow">▼</span></button>
+          <div class="dropdown-content">
+            <a href="index.html">Home 1</a>
+            <a href="home-2.html">Home 2</a>
+          </div>
+        </div>
+        <a href="about.html" class="nav-item">About</a>
+        <a href="services.html" class="nav-item">Services</a>
+        <a href="contact.html" class="nav-item">Contact</a>
+      </nav>
+
+      <div class="header-toggles">
+        <button id="dir-toggle" class="toggle-btn" aria-label="Toggle Text Direction">LTR</button>
+        <button id="theme-toggle" class="toggle-btn theme-btn" aria-label="Toggle Theme">
+          <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <!-- Insert Unsplash URL in background-image below -->
+    <section class="hero" id="home" style="background-image: url('https://images.unsplash.com/photo-1511512578047-dfb367046420?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YXJjYWRlJTIwZ2FtZXN8ZW58MHx8MHx8fDA%3D');">
+      <div class="hero-content">
+        <h1 class="glitch" data-text="INSERT COIN TO PLAY">INSERT COIN TO PLAY</h1>
+        <p class="subtitle">The Ultimate Retro Arcade Bar & Event Space</p>
+        <a href="#games" class="btn btn-primary">Start Game</a>
+      </div>
+      <div class="hero-overlay"></div>
+    </section>
+
+    <!-- Games List Section -->
+    <section class="games-section" id="about">
+      <div class="container">
+        <h2 class="section-title">Classic Cabinets</h2>
+        <div class="games-grid">
+          <div class="game-card">
+            <div class="game-image bg-neon-cyan">
+              <img src="https://images.unsplash.com/photo-1685914962460-f362d85829fa?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8UEFDLU1BTklBJTIwVGhlJTIwMTk4NyUyMGNsYXNzaWMlMjBtYXplJTIwY2hhc2UlMjBnYW1lLnxlbnwwfHwwfHx8MA%3D%3D" class="unsplash-placeholder" alt="Insert Unsplash URL here (Cabinet)">
+            </div>
+            <div class="game-info">
+              <h3>PAC-MANIA</h3>
+              <p>The 1987 classic maze chase game.</p>
+            </div>
+          </div>
+          <div class="game-card">
+            <div class="game-image bg-neon-pink">
+              <img src="https://plus.unsplash.com/premium_photo-1714758069636-fd3390c86f64?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8U1RSRUVUJTIwRklHSFRFUnxlbnwwfHwwfHx8MA%3D%3D" class="unsplash-placeholder" alt="Insert Unsplash URL here (Cabinet)">
+            </div>
+            <div class="game-info">
+              <h3>STREET FIGHTER II</h3>
+              <p>Head-to-head fighting champion.</p>
+            </div>
+          </div>
+          <div class="game-card">
+            <div class="game-image bg-neon-purple">
+              <img src="https://plus.unsplash.com/premium_photo-1722111091429-dd3dc55979d3?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8U1BBQ0UlMjBJTlZBREVSU3xlbnwwfHwwfHx8MA%3D%3D" class="unsplash-placeholder" alt="Insert Unsplash URL here (Cabinet)">
+            </div>
+            <div class="game-info">
+              <h3>SPACE INVADERS</h3>
+              <p>Defend the Earth from alien forces.</p>
+            </div>
+          </div>
+          <div class="game-card">
+            <div class="game-image bg-neon-cyan">
+              <img src="https://images.unsplash.com/photo-1759171052927-83f3b3a72b2b?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8RE9OS0VZJTIwS09OR3xlbnwwfHwwfHx8MA%3D%3D" class="unsplash-placeholder" alt="Insert Unsplash URL here (Cabinet)">
+            </div>
+            <div class="game-info">
+              <h3>DONKEY KONG</h3>
+              <p>Climb the ladders and rescue Pauline.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Leaderboard Section -->
+    <section class="leaderboard-section">
+      <div class="container">
+        <h2 class="section-title text-center">Weekly High Scores</h2>
+        <div class="leaderboard-table-container">
+          <table class="leaderboard-table">
+            <thead>
+              <tr>
+                <th>RANK</th>
+                <th>PLAYER</th>
+                <th>SCORE</th>
+                <th>GAME</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="rank-1">
+                <td>1ST</td>
+                <td>J0HN_D0E</td>
+                <td>999,990</td>
+                <td>PAC-MANIA</td>
+              </tr>
+              <tr class="rank-2">
+                <td>2ND</td>
+                <td>CYBER_NINJA</td>
+                <td>845,200</td>
+                <td>SPACE INVADERS</td>
+              </tr>
+              <tr class="rank-3">
+                <td>3RD</td>
+                <td>RETRO_KING</td>
+                <td>760,100</td>
+                <td>DONKEY KONG</td>
+              </tr>
+              <tr>
+                <td>4TH</td>
+                <td>PIXEL_QUEEN</td>
+                <td>612,450</td>
+                <td>GALAGA</td>
+              </tr>
+              <tr>
+                <td>5TH</td>
+                <td>ARCADE_RAT</td>
+                <td>590,000</td>
+                <td>ASTEROIDS</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tap List Section -->
+    <section class="tap-list-section" id="services">
+      <div class="container">
+        <h2 class="section-title">Craft Tap List</h2>
+        <div class="tap-grid">
+          <div class="tap-item">
+            <div class="tap-header">
+              <h4 class="tap-name">Neon Nectar IPA</h4>
+              <span class="tap-price">$8</span>
+            </div>
+            <p class="tap-desc">Hazy IPA with tropical fruit notes. 6.5% ABV</p>
+          </div>
+          <div class="tap-item">
+            <div class="tap-header">
+              <h4 class="tap-name">8-Bit Stout</h4>
+              <span class="tap-price">$9</span>
+            </div>
+            <p class="tap-desc">Rich chocolate and coffee stout. 8.2% ABV</p>
+          </div>
+          <div class="tap-item">
+            <div class="tap-header">
+              <h4 class="tap-name">Player 2 Pilsner</h4>
+              <span class="tap-price">$7</span>
+            </div>
+            <p class="tap-desc">Crisp, clean, and refreshing. 4.8% ABV</p>
+          </div>
+          <div class="tap-item">
+            <div class="tap-header">
+              <h4 class="tap-name">Zero-Gravity Mocktail</h4>
+              <span class="tap-price">$6</span>
+            </div>
+            <p class="tap-desc">Zero-proof sparkling blueberry mint. NA</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section" id="newsletter">
+      <div class="container">
+        <div class="newsletter-box">
+          <h2 class="section-title" style="margin-bottom: 1rem; font-size: 1.5rem;">STAY IN THE LOOP</h2>
+          <p>Get exclusive invites to tournaments and secret tap list releases.</p>
+          <form class="newsletter-form" onsubmit="event.preventDefault();">
+            <input type="email" placeholder="Enter your email" required>
+            <button type="submit" class="btn btn-primary">Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Social Wall Section -->
+    <section class="social-wall-section" id="social">
+      <div class="container">
+        <h2 class="section-title">NEON NIGHTS</h2>
+        <div class="social-grid">
+          <div class="social-item"><div class="glitch" data-text="@ARCADE" style="font-size: 1rem; margin: 80px auto; text-align: center;">@ARCADE</div></div>
+          <div class="social-item"><div class="glitch" data-text="#RETRO" style="font-size: 1rem; margin: 80px auto; text-align: center;">#RETRO</div></div>
+          <div class="social-item"><div class="glitch" data-text="@HIGHSCORE" style="font-size: 1rem; margin: 80px auto; text-align: center;">@HIGHSCORE</div></div>
+          <div class="social-item"><div class="glitch" data-text="#GAMEOVER" style="font-size: 1rem; margin: 80px auto; text-align: center;">#GAMEOVER</div></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" style="display: flex; align-items: center; gap: 8px; margin-bottom: 1rem;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--neon-cyan)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="14" width="16" height="6" rx="2"></rect><path d="M12 14v-8"></path><circle cx="12" cy="4" r="2" fill="var(--neon-pink)" stroke="var(--neon-pink)"></circle></svg>
+            <span class="logo-text">ARCADE<span class="neon-cyan">BAR</span></span>
+          </a>
+          <p class="footer-desc">The ultimate retro arcade bar experience. Authentic cabinets, craft tap lists, and weekly high-score glory.</p>
+          <div class="social-icons">
+            <a href="#" aria-label="Twitter"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path></svg></a>
+            <a href="#" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+            <a href="#" aria-label="Discord"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="12" r="1"></circle><circle cx="15" cy="12" r="1"></circle><path d="M7.5 7.5c3.5-1 8.5-1 12 0"></path><path d="M7 16.5c3.5 1 8.5 1 12 0"></path><path d="M15.5 17c0 1 1.5 3 2 3 1.5 0 2.833-1.667 3.5-3 .667-1.667.5-5.833-1.5-11.5-1.457-1.015-3-1.34-4.5-1.5l-1 2.5"></path><path d="M8.5 17c0 1-1.5 3-2 3-1.5 0-2.833-1.667-3.5-3-.667-1.667-.5-5.833 1.5-11.5 1.457-1.015 3-1.34 4.5-1.5l1 2.5"></path></svg></a>
+          </div>
+        </div>
+        
+        <div class="footer-links">
+          <h3>QUICK LINKS</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links">
+          <h3>LEGAL</h3>
+          <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms & Conditions</a></li>
+            <li><a href="#">House Rules</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-contact">
+          <h3>COMMUNICATIONS</h3>
+          <p>1984 Pixel Parkway</p>
+          <p>Sector 7G, Cyber City</p>
+          <p><a href="mailto:hello@arcadebar.com" class="contact-link">hello@arcadebar.com</a></p>
+          <p><a href="tel:5550198085" class="contact-link">(555) 019-8085</a></p>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2026 Arcade Bar & Event Space. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

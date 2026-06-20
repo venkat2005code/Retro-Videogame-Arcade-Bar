@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - Retro Arcade Bar</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2300f3ff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect x='4' y='14' width='16' height='6' rx='2'></rect><path d='M12 14v-8'></path><circle cx='12' cy='4' r='2' fill='%23ff007f' stroke='%23ff007f'></circle></svg>">
+  <meta name="description" content="Get in touch with us, find our location, and check our operating hours.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Press+Start+2P&display=swap" rel="stylesheet">
+  
+  <!-- Leaflet Map Library -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+  
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="sections.css">
+  <style>
+    .contact-section {
+      padding: 6rem 0;
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+    }
+    .contact-info {
+      background-color: var(--bg-secondary);
+      padding: 3rem;
+      border-radius: 8px;
+      border-left: 4px solid var(--neon-purple);
+    }
+    .info-block {
+      margin-bottom: 2rem;
+    }
+    .info-block h3 {
+      font-family: var(--font-retro);
+      font-size: 1rem;
+      color: var(--neon-cyan);
+      margin-bottom: 1rem;
+    }
+    .info-block p {
+      color: var(--text-secondary);
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+.map-placeholder {
+      width: 100%;
+      height: 400px;
+      background: #111;
+      border: 2px solid var(--neon-cyan);
+      border-radius: 8px;
+      overflow: hidden;
+      margin-top: 2rem;
+      box-shadow: 0 0 20px rgba(0, 243, 255, 0.3);
+    }
+    #map {
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+    .leaflet-control-attribution {
+      background: rgba(17, 17, 17, 0.8) !important;
+      color: var(--text-secondary) !important;
+    }
+    .leaflet-control-zoom {
+      border: 1px solid var(--neon-cyan) !important;
+      border-radius: 4px !important;
+    }
+    .leaflet-control-zoom-in,
+    .leaflet-control-zoom-out {
+      background-color: var(--bg-secondary) !important;
+      color: var(--neon-cyan) !important;
+      border: 1px solid var(--neon-cyan) !important;
+      font-weight: bold;
+    }
+    .leaflet-control-zoom-in:hover,
+    .leaflet-control-zoom-out:hover {
+      background-color: var(--neon-cyan) !important;
+      color: var(--bg-secondary) !important;
+    }
+    @media (max-width: 768px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body class="dark-theme">
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-container">
+      <div class="logo">
+        <a href="index.html" style="display: flex; align-items: center; gap: 8px;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--neon-cyan)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="14" width="16" height="6" rx="2"></rect><path d="M12 14v-8"></path><circle cx="12" cy="4" r="2" fill="var(--neon-pink)" stroke="var(--neon-pink)"></circle></svg>
+          <span class="logo-text">ARCADE<span class="neon-pink">BAR</span></span>
+        </a>
+      </div>
+
+      <button class="hamburger" id="hamburger-btn" aria-label="Toggle Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      
+      <nav class="nav-links">
+        <div class="dropdown">
+          <button class="dropbtn">Home <span class="arrow">▼</span></button>
+          <div class="dropdown-content">
+            <a href="index.html">Home 1</a>
+            <a href="home-2.html">Home 2</a>
+          </div>
+        </div>
+        <a href="about.html" class="nav-item">About</a>
+        <a href="services.html" class="nav-item">Services</a>
+        <a href="contact.html" class="nav-item active">Contact</a>
+      </nav>
+
+      <div class="header-toggles">
+        <button id="dir-toggle" class="toggle-btn" aria-label="Toggle Text Direction">LTR</button>
+        <button id="theme-toggle" class="toggle-btn theme-btn" aria-label="Toggle Theme">
+          <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <!-- Insert Unsplash URL in background-image below -->
+    <section class="page-hero" style="background-image: url('https://images.unsplash.com/photo-1546443046-ed1ce6ffd1ab?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8R0VUJTIwSU4lMjBUT1VDSCUyMGluJTIwZ2FtZXN8ZW58MHx8MHx8fDA%3D'); background-size: cover; background-position: center;">
+      <div class="hero-overlay"></div>
+      <h1>CONTACT US</h1>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+      <div class="container">
+        <div class="contact-grid">
+          
+          <!-- Contact Form -->
+          <div class="contact-form-wrapper">
+            <h2 class="section-title" style="text-align: left; font-size: 1.5rem;">Send a Message</h2>
+            <form class="booking-form" onsubmit="event.preventDefault();" style="box-shadow: none; border-color: var(--neon-cyan);">
+              <div class="form-group">
+                <label for="name">Player Name</label>
+                <input type="text" id="name" placeholder="Enter your name" required>
+              </div>
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" placeholder="Enter your email" required>
+              </div>
+              <div class="form-group">
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" placeholder="What is this regarding?" required>
+              </div>
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" rows="5" placeholder="Type your message here..." style="width: 100%; padding: 0.8rem; background-color: var(--bg-secondary); border: 1px solid var(--border-color); color: var(--text-primary); border-radius: 4px; font-family: var(--font-modern); transition: border-color 0.3s; resize: vertical;" required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary submit-btn" style="border-color: var(--neon-purple); color: var(--neon-purple); box-shadow: 0 0 15px rgba(176,38,255,0.3), inset 0 0 15px rgba(176,38,255,0.3);">Send Transmission</button>
+            </form>
+          </div>
+
+          <!-- Contact Details -->
+          <div class="contact-info">
+            <div class="info-block">
+              <h3>LOCATION</h3>
+              <p>1984 Pixel Parkway</p>
+              <p>Neon District, Cyber City</p>
+              <p>Sector 7G</p>
+            </div>
+            <div class="info-block">
+              <h3>HOURS</h3>
+              <p>Mon - Wed: 4:00 PM - 12:00 AM</p>
+              <p>Thu - Fri: 4:00 PM - 2:00 AM</p>
+              <p>Sat: 12:00 PM - 2:00 AM</p>
+              <p>Sun: 12:00 PM - 12:00 AM</p>
+            </div>
+            <div class="info-block">
+              <h3>COMMUNICATIONS</h3>
+              <p>Phone: (555) 019-8085</p>
+              <p>Email: hello@arcadebar.com</p>
+            </div>
+            
+            <div class="map-placeholder">
+              <div id="map"></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+      <div class="container">
+        <h2 class="section-title">FAQ</h2>
+        <div class="faq-grid">
+          <div class="faq-item">
+            <div class="faq-q">Are you 21+ only?</div>
+            <div class="faq-a">Yes, we strictly enforce a 21+ age limit after 8:00 PM. Before 8:00 PM on weekends, accompanied minors are welcome.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">Do you serve food?</div>
+            <div class="faq-a">We offer a menu of shareable snacks and bites. Check our Services page for the full menu.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">How much do games cost?</div>
+            <div class="faq-a">Most vintage cabinets are 2 tokens (50 cents). Pinball machines are 4 tokens ($1.00). Tuesdays are free play with a drink purchase.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Directions Section -->
+    <section class="directions-section">
+      <div class="container text-center">
+        <h2 class="section-title">GETTING HERE</h2>
+        <p style="color: var(--text-secondary); margin-bottom: 2rem;">We are located right off the main synthwave corridor. Parking is available in the rear lot.</p>
+        <div style="display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap;">
+          <div style="background: var(--bg-color); padding: 1.5rem; border-radius: 4px; border: 1px solid var(--border-color); width: 250px;">
+            <h3 style="color: var(--neon-cyan); margin-bottom: 0.5rem; font-family: var(--font-retro); font-size: 0.8rem;">BY TRAIN</h3>
+            <p style="color: var(--text-secondary); font-size: 0.9rem;">Take the Red Line to Sector 7G Station. Walk two blocks east.</p>
+          </div>
+          <div style="background: var(--bg-color); padding: 1.5rem; border-radius: 4px; border: 1px solid var(--border-color); width: 250px;">
+            <h3 style="color: var(--neon-pink); margin-bottom: 0.5rem; font-family: var(--font-retro); font-size: 0.8rem;">PARKING</h3>
+            <p style="color: var(--text-secondary); font-size: 0.9rem;">Validated parking in the Neon District Garage for up to 4 hours.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Careers Section -->
+    <section class="careers-section">
+      <div class="container">
+        <h2 class="section-title">JOIN OUR PARTY</h2>
+        <p style="color: var(--text-secondary);">We are always looking for passionate people to join our crew.</p>
+        <div class="job-list">
+          <div class="job-item">
+            <div>
+              <h3 style="color: var(--text-primary); margin-bottom: 0.2rem;">Arcade Technician</h3>
+              <p style="color: var(--text-secondary); font-size: 0.8rem;">Full Time / On-Site</p>
+            </div>
+            <button class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.7rem;">APPLY</button>
+          </div>
+          <div class="job-item">
+            <div>
+              <h3 style="color: var(--text-primary); margin-bottom: 0.2rem;">Bartender / Mixologist</h3>
+              <p style="color: var(--text-secondary); font-size: 0.8rem;">Part Time / Nights</p>
+            </div>
+            <button class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.7rem;">APPLY</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Support Section -->
+    <section class="support-section">
+      <div class="container text-center">
+        <h2 class="section-title" style="font-size: 1.5rem; margin-bottom: 1rem;">REPORT A GLITCH</h2>
+        <p style="color: var(--text-secondary); margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">Did you find a broken joystick or a coin jam? Let our techs know so we can fix it ASAP.</p>
+        <button class="btn btn-primary" style="border-color: var(--neon-cyan); color: var(--text-primary);">OPEN SUPPORT TICKET</button>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" style="display: flex; align-items: center; gap: 8px; margin-bottom: 1rem;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--neon-cyan)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="14" width="16" height="6" rx="2"></rect><path d="M12 14v-8"></path><circle cx="12" cy="4" r="2" fill="var(--neon-pink)" stroke="var(--neon-pink)"></circle></svg>
+            <span class="logo-text">ARCADE<span class="neon-cyan">BAR</span></span>
+          </a>
+          <p class="footer-desc">The ultimate retro arcade bar experience. Authentic cabinets, craft tap lists, and weekly high-score glory.</p>
+          <div class="social-icons">
+            <a href="#" aria-label="Twitter"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path></svg></a>
+            <a href="#" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+            <a href="#" aria-label="Discord"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="12" r="1"></circle><circle cx="15" cy="12" r="1"></circle><path d="M7.5 7.5c3.5-1 8.5-1 12 0"></path><path d="M7 16.5c3.5 1 8.5 1 12 0"></path><path d="M15.5 17c0 1 1.5 3 2 3 1.5 0 2.833-1.667 3.5-3 .667-1.667.5-5.833-1.5-11.5-1.457-1.015-3-1.34-4.5-1.5l-1 2.5"></path><path d="M8.5 17c0 1-1.5 3-2 3-1.5 0-2.833-1.667-3.5-3-.667-1.667-.5-5.833 1.5-11.5 1.457-1.015 3-1.34 4.5-1.5l1 2.5"></path></svg></a>
+          </div>
+        </div>
+        
+        <div class="footer-links">
+          <h3>QUICK LINKS</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links">
+          <h3>LEGAL</h3>
+          <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms & Conditions</a></li>
+            <li><a href="#">House Rules</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-contact">
+          <h3>COMMUNICATIONS</h3>
+          <p>1984 Pixel Parkway</p>
+          <p>Sector 7G, Cyber City</p>
+          <p><a href="mailto:hello@arcadebar.com" class="contact-link">hello@arcadebar.com</a></p>
+          <p><a href="tel:5550198085" class="contact-link">(555) 019-8085</a></p>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2026 Arcade Bar & Event Space. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    // Initialize interactive map
+    const map = L.map('map').setView([40.7128, -74.0060], 13); // NYC coordinates as placeholder
+    
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors',
+      maxZoom: 19,
+      className: 'map-tiles'
+    }).addTo(map);
+    
+    // Add marker for Arcade Bar location
+    const marker = L.marker([40.7128, -74.0060]).addTo(map);
+    marker.bindPopup(
+      '<div style="text-align: center; color: #111;">' +
+      '<strong style="color: #ff007f; font-size: 1.1em;">ARCADE BAR</strong><br>' +
+      '1984 Pixel Parkway<br>' +
+      'Neon District, Cyber City<br>' +
+      'Sector 7G<br><br>' +
+      '<strong style="color: #00f3ff;">Phone:</strong> (555) 019-8085<br>' +
+      '<strong style="color: #00f3ff;">Email:</strong> hello@arcadebar.com' +
+      '</div>'
+    ).openPopup();
+  </script>
+</body>
+</html>

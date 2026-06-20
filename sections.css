@@ -1,0 +1,153 @@
+/* Page Hero */
+.page-hero {
+  height: 40vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at center, var(--bg-secondary) 0%, var(--bg-color) 100%);
+  position: relative;
+  text-align: center;
+  border-bottom: 2px solid var(--neon-cyan);
+}
+.page-hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: linear-gradient(rgba(0, 243, 255, 0.05) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(0, 243, 255, 0.05) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+.page-hero h1 {
+  font-family: var(--font-retro);
+  font-size: 2.5rem;
+  color: var(--text-primary);
+  text-shadow: 2px 2px 0px var(--neon-pink);
+  position: relative;
+  z-index: 2;
+}
+
+/* Newsletter Section */
+.newsletter-section { padding: 6rem 0; background: var(--bg-color); border-top: 1px solid var(--border-color); }
+.newsletter-box { background: var(--bg-secondary); padding: 3rem; border-radius: 8px; border: 2px solid var(--neon-cyan); text-align: center; box-shadow: 0 0 20px rgba(0,243,255,0.1); }
+.newsletter-form { display: flex; gap: 1rem; max-width: 500px; margin: 2rem auto 0; }
+.newsletter-form input { flex: 1; padding: 1rem; background: var(--bg-color); border: 1px solid var(--border-color); color: var(--text-primary); border-radius: 4px; }
+.newsletter-form button { padding: 1rem 2rem; border-radius: 4px; }
+
+/* Social Wall Section */
+.social-wall-section { padding: 6rem 0; background: var(--bg-secondary); }
+.social-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; }
+.social-item { flex: 1 1 200px; max-width: 300px; height: 200px; background: var(--bg-secondary); border: 1px solid var(--border-color); position: relative; overflow: hidden; border-radius: 4px; transition: 0.3s; }
+.social-item:hover { border-color: var(--neon-pink); transform: scale(1.02); z-index: 10; box-shadow: 0 0 15px rgba(255,0,127,0.3); }
+
+/* Atmosphere Section */
+.atmosphere-section { padding: 6rem 0; background: var(--bg-color); }
+.atmosphere-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+.atmosphere-img { height: 400px; background: linear-gradient(135deg, rgba(0,243,255,0.2), rgba(176,38,255,0.2)); border: 1px solid var(--neon-purple); border-radius: 8px; }
+
+/* Drinks / Cocktails */
+.cocktails-section { padding: 6rem 0; background: var(--bg-secondary); border-top: 1px dashed var(--border-color); }
+
+/* Event Calendar */
+.calendar-section { padding: 6rem 0; background: var(--bg-color); }
+.event-card { background: var(--bg-secondary); padding: 1.5rem; border-left: 4px solid var(--neon-cyan); margin-bottom: 1rem; display: flex; justify-content: space-between; align-items: center; border-radius: 4px; }
+.event-date { font-family: var(--font-retro); color: var(--neon-pink); font-size: 0.8rem; margin-bottom: 0.5rem; }
+
+/* Testimonials */
+.testimonials-section { padding: 6rem 0; background: var(--bg-secondary); border-top: 1px solid var(--border-color); }
+.testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+.testimonial-card { background: var(--bg-color); padding: 2rem; border: 1px dashed var(--border-color); position: relative; border-radius: 8px; }
+.testimonial-card::before { content: '"'; font-family: var(--font-retro); font-size: 4rem; color: var(--neon-purple); position: absolute; top: -10px; left: 10px; opacity: 0.3; }
+
+/* Quick Reserve */
+.quick-reserve-section { padding: 4rem 0; background: linear-gradient(90deg, rgba(176,38,255,0.1), rgba(0,243,255,0.1)); border-top: 2px solid var(--neon-purple); border-bottom: 2px solid var(--neon-cyan); text-align: center; }
+
+/* Team Section */
+.team-section { padding: 6rem 0; background: var(--bg-secondary); }
+.team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; text-align: center; }
+.team-portrait { width: 150px; height: 150px; margin: 0 auto 1rem; border-radius: 50%; border: 3px solid var(--neon-cyan); background: var(--bg-color); display: flex; align-items: center; justify-content: center; overflow: hidden; }
+
+/* Process Section */
+.process-section { padding: 6rem 0; background: var(--bg-color); }
+.process-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; counter-reset: step; }
+.step-card { padding: 2rem; background: var(--bg-secondary); border-radius: 8px; position: relative; border-top: 4px solid var(--neon-pink); }
+.step-card::before { counter-increment: step; content: "0" counter(step); font-family: var(--font-retro); font-size: 2rem; color: var(--neon-pink); opacity: 0.2; position: absolute; top: 1rem; right: 1rem; }
+
+/* Values */
+.values-section { padding: 6rem 0; background: var(--bg-secondary); }
+.value-list { display: flex; flex-direction: column; gap: 2rem; }
+.value-item { display: flex; gap: 2rem; align-items: flex-start; }
+.value-icon { font-size: 2rem; color: var(--neon-cyan); }
+
+/* Press */
+.press-section { padding: 6rem 0; background: var(--bg-color); border-top: 1px dashed var(--border-color); }
+.press-logos { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 2rem; opacity: 0.5; filter: grayscale(100%); transition: 0.3s; }
+.press-logos:hover { opacity: 1; filter: none; }
+
+/* Full Catalog */
+.catalog-section { padding: 6rem 0; background: var(--bg-color); }
+
+/* Detailed Bar Menu */
+.menu-section { padding: 6rem 0; background: var(--bg-secondary); }
+.menu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
+.menu-category h3 { font-family: var(--font-retro); color: var(--neon-purple); border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem; margin-bottom: 1.5rem; font-size: 1rem; }
+.menu-item { display: flex; justify-content: space-between; margin-bottom: 1rem; border-bottom: 1px dotted var(--border-color); padding-bottom: 0.5rem; }
+
+/* Snacks */
+.snacks-section { padding: 6rem 0; background: var(--bg-color); }
+
+/* Merch */
+.merch-section { padding: 6rem 0; background: var(--bg-secondary); border-top: 1px solid var(--border-color); }
+.merch-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
+.merch-card { background: var(--bg-color); padding: 1.5rem; text-align: center; border: 1px solid var(--border-color); border-radius: 8px; }
+.merch-img { height: 200px; background: var(--bg-secondary); margin-bottom: 1rem; display: flex; align-items: center; justify-content: center; border-radius: 4px; overflow: hidden; }
+
+/* FAQ */
+.faq-section { padding: 6rem 0; background: var(--bg-color); }
+.faq-grid { display: grid; gap: 1rem; max-width: 800px; margin: 0 auto; }
+.faq-item { background: var(--bg-secondary); padding: 1.5rem; border-radius: 4px; border-left: 2px solid var(--neon-cyan); }
+.faq-q { font-weight: bold; margin-bottom: 0.5rem; color: var(--text-primary); }
+.faq-a { color: var(--text-secondary); }
+
+/* Directions */
+.directions-section { padding: 6rem 0; background: var(--bg-secondary); }
+
+/* Careers */
+.careers-section { padding: 6rem 0; background: var(--bg-color); text-align: center; }
+.job-list { max-width: 600px; margin: 2rem auto 0; text-align: left; }
+.job-item { padding: 1.5rem; background: var(--bg-secondary); border: 1px solid var(--border-color); margin-bottom: 1rem; border-radius: 4px; display: flex; justify-content: space-between; align-items: center; }
+
+/* Support */
+.support-section { padding: 6rem 0; background: var(--bg-secondary); border-top: 1px dashed var(--border-color); }
+
+@media (max-width: 1024px) {
+  .atmosphere-grid, .menu-grid, .story-grid {
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .atmosphere-grid, .menu-grid, .story-grid { 
+    grid-template-columns: 1fr; 
+    gap: 2rem;
+  }
+  .newsletter-form { flex-direction: column; }
+  .page-hero h1 { font-size: 1.8rem; }
+}
+
+@media (max-width: 480px) {
+  .page-hero h1 {
+    font-size: 1.3rem;
+  }
+  
+  .newsletter-box {
+    padding: 1.5rem;
+  }
+  
+  .step-card {
+    padding: 1.5rem;
+  }
+  
+  .testimonial-card {
+    padding: 1.5rem;
+  }
+}
