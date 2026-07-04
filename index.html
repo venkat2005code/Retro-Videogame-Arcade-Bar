@@ -14,6 +14,11 @@
   
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="sections.css">
+  <script>
+    if (localStorage.getItem('arcade-theme') === 'light') {
+      document.documentElement.setAttribute('data-theme', 'light');
+    }
+  </script>
 </head>
 <body class="dark-theme">
 
@@ -43,6 +48,7 @@
         </div>
         <a href="about.html" class="nav-item">About</a>
         <a href="services.html" class="nav-item">Services</a>
+        <a href="events.html" class="nav-item">Events</a>
         <a href="contact.html" class="nav-item">Contact</a>
       </nav>
 
@@ -249,8 +255,10 @@
           <h3>QUICK LINKS</h3>
           <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="services.html">Services</a></li>
+            <li><a href="services.html">Services</a>
+        <a href="events.html" class="nav-item">Events</a></li>
             <li><a href="about.html">About</a></li>
+            <li><a href="events.html">Events</a></li>
             <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>

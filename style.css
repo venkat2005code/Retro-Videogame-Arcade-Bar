@@ -30,9 +30,15 @@
   --neon-purple: #7e1eb8;
   
   --border-color: #e4e4e7;
-  
-  --hero-glass-bg: rgba(244, 244, 245, 0.85);
-  --hero-overlay-bg: rgba(244, 244, 245, 0.85);
+}
+
+/* Force hero sections to use dark mode contrast */
+.hero, .page-hero {
+  --text-primary: #f8f8f2;
+  --text-secondary: #a1a1aa;
+  --neon-pink: #ff007f;
+  --neon-cyan: #00f3ff;
+  --neon-purple: #b026ff;
 }
 
 * {
@@ -74,8 +80,11 @@ a {
 
 /* Header */
 .header {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
   background-color: rgba(9, 9, 11, 0.85);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -191,8 +200,9 @@ a {
   border: 1px solid var(--border-color);
   color: var(--text-primary);
   padding: 0.5rem 1rem;
-  font-family: var(--font-retro);
-  font-size: 0.7rem;
+  font-family: var(--font-modern);
+  font-size: 0.8rem;
+  font-weight: 600;
   cursor: pointer;
   border-radius: 4px;
   transition: all 0.3s ease;
@@ -334,8 +344,9 @@ a {
 .btn {
   display: inline-block;
   padding: 1rem 2rem;
-  font-family: var(--font-retro);
-  font-size: 0.8rem;
+  font-family: var(--font-modern);
+  font-weight: 700;
+  font-size: 1rem;
   text-transform: uppercase;
   border: none;
   cursor: pointer;
@@ -431,8 +442,9 @@ a {
 }
 
 .leaderboard-table th {
-  font-family: var(--font-retro);
-  font-size: 0.8rem;
+  font-family: var(--font-modern);
+  font-size: 0.9rem;
+  text-transform: uppercase;
   color: var(--neon-pink);
   text-align: left;
   padding: 1rem;
@@ -476,6 +488,9 @@ a {
   padding: 1.5rem;
   border-left: 4px solid var(--neon-cyan);
   border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .tap-item:nth-child(even) {
@@ -492,8 +507,9 @@ a {
 }
 
 .tap-name {
-  font-family: var(--font-retro);
-  font-size: 0.9rem;
+  font-family: var(--font-modern);
+  font-size: 1.1rem;
+  font-weight: 700;
   color: var(--text-primary);
 }
 
@@ -509,6 +525,7 @@ a {
 .tap-desc {
   color: var(--text-secondary);
   font-size: 0.9rem;
+  margin-top: auto;
 }
 
 /* Booking Section */
@@ -545,8 +562,9 @@ a {
 .form-group label {
   display: block;
   margin-bottom: 0.5rem;
-  font-family: var(--font-retro);
-  font-size: 0.6rem;
+  font-family: var(--font-modern);
+  font-size: 0.8rem;
+  font-weight: 600;
   color: var(--text-secondary);
   text-transform: uppercase;
 }
@@ -630,8 +648,9 @@ a {
 }
 
 .footer-links h3, .footer-contact h3 {
-  font-family: var(--font-retro);
-  font-size: 0.8rem;
+  font-family: var(--font-modern);
+  font-size: 1.1rem;
+  font-weight: 700;
   color: var(--text-primary);
   margin-bottom: 1.5rem;
 }

@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Services - Retro Arcade Bar</title>
+  <title>Events - Retro Arcade Bar</title>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2300f3ff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect x='4' y='14' width='16' height='6' rx='2'></rect><path d='M12 14v-8'></path><circle cx='12' cy='4' r='2' fill='%23ff007f' stroke='%23ff007f'></circle></svg>">
-  <meta name="description" content="Explore our services including an extensive retro game catalog, premium craft tap lists, and private event bookings.">
+  <meta name="description" content="Check out the latest events, tournaments, and theme nights at Arcade Bar.">
   
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,6 +14,82 @@
   
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="sections.css">
+  <style>
+    .events-section {
+      padding: 6rem 0;
+    }
+    .event-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      margin-bottom: 2rem;
+      display: flex;
+      flex-direction: column;
+    }
+    @media (min-width: 768px) {
+      .event-card {
+        flex-direction: row;
+      }
+    }
+    .event-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 243, 255, 0.1);
+      border-color: var(--neon-cyan);
+    }
+    .event-image {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      background: #111;
+    }
+    @media (min-width: 768px) {
+      .event-image {
+        width: 40%;
+        height: auto;
+      }
+    }
+    .event-details {
+      padding: 2rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .event-date {
+      color: var(--neon-pink);
+      font-family: var(--font-retro);
+      font-size: 0.8rem;
+      margin-bottom: 1rem;
+    }
+    .event-title {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: var(--text-primary);
+    }
+    .event-desc {
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+    .booking-section {
+      padding: 6rem 0;
+      background: linear-gradient(135deg, rgba(0,243,255,0.05), rgba(255,0,127,0.05));
+      border-top: 1px solid var(--border-color);
+      text-align: center;
+    }
+    .booking-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .booking-content p {
+      color: var(--text-secondary);
+      margin-bottom: 2rem;
+      line-height: 1.6;
+      font-size: 1.1rem;
+    }
+  </style>
   <script>
     if (localStorage.getItem('arcade-theme') === 'light') {
       document.documentElement.setAttribute('data-theme', 'light');
@@ -28,7 +104,7 @@
       <div class="logo">
         <a href="index.html" style="display: flex; align-items: center; gap: 8px;">
           <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--neon-cyan)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="14" width="16" height="6" rx="2"></rect><path d="M12 14v-8"></path><circle cx="12" cy="4" r="2" fill="var(--neon-pink)" stroke="var(--neon-pink)"></circle></svg>
-          <span class="logo-text">ARCADE<span class="neon-pink">BAR</span></span>
+          <span class="logo-text">ARCADE<span class="neon-cyan">BAR</span></span>
         </a>
       </div>
 
@@ -47,8 +123,8 @@
           </div>
         </div>
         <a href="about.html" class="nav-item">About</a>
-        <a href="services.html" class="nav-item active">Services</a>
-        <a href="events.html" class="nav-item">Events</a>
+        <a href="services.html" class="nav-item">Services</a>
+        <a href="events.html" class="nav-item active">Events</a>
         <a href="contact.html" class="nav-item">Contact</a>
       </nav>
 
@@ -64,129 +140,59 @@
 
   <main>
     <!-- Hero -->
-    <!-- Insert Unsplash URL in background-image below -->
-    <section class="page-hero" style="background-image: url('https://plus.unsplash.com/premium_photo-1687919416905-546b7901d189?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8YXJjYWRlJTIwZ2FtZXN8ZW58MHx8MHx8fDA%3D'); background-size: cover; background-position: center;">
+    <section class="page-hero" style="background-image: url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=900&auto=format&fit=crop&q=60'); background-size: cover; background-position: center;">
       <div class="hero-overlay"></div>
-      <h1>OUR SERVICES</h1>
+      <h1>UPCOMING EVENTS</h1>
     </section>
 
-    <!-- Full Arcade Catalog -->
-    <section class="catalog-section">
+    <!-- Events Section -->
+    <section class="events-section">
       <div class="container">
-        <h2 class="section-title">FULL CATALOG</h2>
-        <div style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
-          <button class="toggle-btn" style="border-color: var(--neon-cyan);">FIGHTING</button>
-          <button class="toggle-btn">BEAT 'EM UP</button>
-          <button class="toggle-btn">CLASSIC</button>
-          <button class="toggle-btn">PINBALL</button>
+        
+        <div class="event-card">
+          <img src="images/street_fighter_tournament.png" alt="Street Fighter II Tournament" class="event-image">
+          <div class="event-details">
+            <div class="event-date">FRIDAY, OCT 13 - 8:00 PM</div>
+            <h3 class="event-title">Street Fighter II Tournament</h3>
+            <p class="event-desc">Join us for our monthly Street Fighter II showdown! Cash prizes for top 3 players. All skill levels welcome. Special drink combos available.</p>
+            <a href="#" class="btn btn-primary" style="align-self: flex-start;">Register Now</a>
+          </div>
         </div>
-        <div class="games-grid">
-          <div class="game-card"><div class="game-info"><h3>TEKKEN 3</h3></div></div>
-          <div class="game-card"><div class="game-info"><h3>TMNT</h3></div></div>
-          <div class="game-card"><div class="game-info"><h3>X-MEN</h3></div></div>
-          <div class="game-card"><div class="game-info"><h3>DIG DUG</h3></div></div>
+
+        <div class="event-card">
+          <img src="images/synthwave_night.png" alt="Synthwave Saturday Night" class="event-image">
+          <div class="event-details">
+            <div class="event-date">SATURDAY, OCT 14 - 9:00 PM</div>
+            <h3 class="event-title">Synthwave Saturday Night</h3>
+            <p class="event-desc">Live DJ spinning the best synthwave, vaporwave, and 80s hits. Wear your best neon gear for a free token bundle at the door.</p>
+            <a href="#" class="btn btn-outline" style="align-self: flex-start;">Learn More</a>
+          </div>
         </div>
+
+        <div class="event-card">
+          <img src="images/retro_trivia.png" alt="Retro Trivia Night" class="event-image">
+          <div class="event-details">
+            <div class="event-date">WEDNESDAY, OCT 18 - 7:30 PM</div>
+            <h3 class="event-title">Retro Pop-Culture Trivia</h3>
+            <p class="event-desc">Test your knowledge on 80s and 90s pop culture, video games, movies, and music. Assemble a team of up to 4 people and compete for bar tabs.</p>
+            <a href="#" class="btn btn-primary" style="align-self: flex-start;">Reserve Table</a>
+          </div>
+        </div>
+
       </div>
     </section>
 
-    <!-- Complete Bar Menu -->
-    <section class="menu-section">
-      <div class="container">
-        <h2 class="section-title">THE BAR MENU</h2>
-        <div class="menu-grid">
-          <div class="menu-category">
-            <h3>DRAFT BEER</h3>
-            <div class="menu-item"><span>Neon Nectar IPA</span><span style="color: var(--neon-cyan);">$8</span></div>
-            <div class="menu-item"><span>Level Up Lager</span><span style="color: var(--neon-cyan);">$6</span></div>
-            <div class="menu-item"><span>8-Bit Stout</span><span style="color: var(--neon-cyan);">$9</span></div>
-          </div>
-          <div class="menu-category">
-            <h3>WINE & CIDER</h3>
-            <div class="menu-item"><span>House Red</span><span style="color: var(--neon-pink);">$10</span></div>
-            <div class="menu-item"><span>House White</span><span style="color: var(--neon-pink);">$10</span></div>
-            <div class="menu-item"><span>Dry Apple Cider</span><span style="color: var(--neon-pink);">$7</span></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Snacks Section -->
-    <section class="snacks-section">
-      <div class="container">
-        <h2 class="section-title">SNACKS & BITES</h2>
-        <div class="menu-grid">
-          <div class="menu-category">
-            <h3>SHAREABLES</h3>
-            <div class="menu-item"><span>Loaded Nachos</span><span style="color: var(--neon-purple);">$12</span></div>
-            <div class="menu-item"><span>Pretzel Bites w/ Cheese</span><span style="color: var(--neon-purple);">$9</span></div>
-            <div class="menu-item"><span>Pixel Fries</span><span style="color: var(--neon-purple);">$7</span></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Event Booking Section -->
+    <!-- Private Events Booking -->
     <section class="booking-section">
-      <div class="container booking-container">
+      <div class="container">
         <div class="booking-content">
-          <h2 class="section-title">Private Parties & Events</h2>
-          <p>Level up your next event! We offer full and partial buyouts for birthdays, corporate team-building events, and private tournaments.</p>
-          <ul style="margin-top: 1.5rem; color: var(--text-secondary); list-style-position: inside;">
-            <li>Dedicated game tokens for guests</li>
-            <li>Custom catering packages available</li>
-            <li>Private bartender and staff</li>
-            <li>Customized leaderboard screens</li>
-          </ul>
+          <h2 class="section-title">Host Your Private Event</h2>
+          <p>Looking for the perfect venue for your next corporate party, birthday, or team-building event? Rent out a section of the arcade or the entire venue. We offer customizable packages including open bar, free-play games, and catering options.</p>
+          <a href="contact.html" class="btn btn-primary">Inquire About Booking</a>
         </div>
-        <form class="booking-form" onsubmit="event.preventDefault();">
-          <div class="form-group">
-            <label for="name">Organizer Name</label>
-            <input type="text" id="name" placeholder="Enter your name" required>
-          </div>
-          <div class="form-group">
-            <label for="email">Email Address</label>
-            <input type="email" id="email" placeholder="Enter your email" required>
-          </div>
-          <div class="form-group">
-            <label for="date">Event Date</label>
-            <input type="date" id="date" required>
-          </div>
-          <div class="form-group">
-            <label for="guests">Party Size</label>
-            <select id="guests">
-              <option>10 - 20 Players (Reserved Section)</option>
-              <option>21 - 50 Players (Half Buyout)</option>
-              <option>50+ Players (Full Buyout)</option>
-            </select>
-          </div>
-          <button type="submit" class="btn btn-primary submit-btn">Request Quote</button>
-        </form>
       </div>
     </section>
 
-    <!-- Merchandise Section -->
-    <section class="merch-section">
-      <div class="container">
-        <h2 class="section-title">LOOT DROP</h2>
-        <div class="merch-grid">
-          <div class="merch-card">
-            <div class="merch-img"><img src="https://plus.unsplash.com/premium_photo-1756085509463-59d0110430ba?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDMxfHx8ZW58MHx8fHx8" class="unsplash-placeholder merch" alt="Insert Unsplash URL here (Shirt Mockup)"></div>
-            <h3 style="font-family: var(--font-retro); font-size: 0.9rem; color: var(--text-primary);">Classic Logo Tee</h3>
-            <span style="color: var(--neon-cyan);">$25</span>
-          </div>
-          <div class="merch-card">
-            <div class="merch-img"><img src="https://images.unsplash.com/photo-1673644765855-7507502b6879?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDV8fHxlbnwwfHx8fHw%3D" class="unsplash-placeholder merch" alt="Insert Unsplash URL here (Hoodie Mockup)"></div>
-            <h3 style="font-family: var(--font-retro); font-size: 0.9rem; color: var(--text-primary);">Neon Nights Hoodie</h3>
-            <span style="color: var(--neon-pink);">$45</span>
-          </div>
-          <div class="merch-card">
-            <div class="merch-img"><img src="https://images.unsplash.com/photo-1668877780005-ad9a49d5011b?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Q3VzdG9tJTIwVG9rZW4lMjBTZXR8ZW58MHx8MHx8fDA%3D" class="unsplash-placeholder merch" alt="Insert Unsplash URL here (Token Mockup)"></div>
-            <h3 style="font-family: var(--font-retro); font-size: 0.9rem; color: var(--text-primary);">Custom Token Set</h3>
-            <span style="color: var(--neon-purple);">$15</span>
-          </div>
-        </div>
-      </div>
-    </section>
   </main>
 
   <footer class="footer">
@@ -209,8 +215,7 @@
           <h3>QUICK LINKS</h3>
           <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="services.html">Services</a>
-        <a href="events.html" class="nav-item">Events</a></li>
+            <li><a href="services.html">Services</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="events.html">Events</a></li>
             <li><a href="contact.html">Contact</a></li>

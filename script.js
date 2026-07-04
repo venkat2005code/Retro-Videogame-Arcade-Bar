@@ -3,13 +3,26 @@ document.addEventListener('DOMContentLoaded', () => {
   const dirToggle = document.getElementById('dir-toggle');
   const htmlElement = document.documentElement;
   
+  // Initialize theme from localStorage
+  const savedTheme = localStorage.getItem('arcade-theme');
+  if (savedTheme) {
+    document.documentElement.setAttribute('data-theme', savedTheme);
+  }
+
   // Theme Toggle Logic
   themeToggle.addEventListener('click', () => {
-    const currentTheme = document.body.getAttribute('data-theme') || 'dark';
+    const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
     const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
     
-    document.body.setAttribute('data-theme', newTheme);
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('arcade-theme', newTheme);
   });
+
+  // Initialize dir from localStorage
+  const savedDir = localStorage.getItem('arcade-dir');
+  if (savedDir) {
+    htmlElement.setAttribute('dir', savedDir);
+  }
 
   // RTL/LTR Toggle Logic
   // Instruction: "Display only the active mode in the RTL/LTR toggle — show 'LTR' when in LTR mode and 'RTL' when in RTL mode"
@@ -19,6 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     htmlElement.setAttribute('dir', newDir);
     dirToggle.textContent = newDir.toUpperCase();
+    localStorage.setItem('arcade-dir', newDir);
   });
   
   // Initialize the text based on current dir
@@ -37,12 +51,6 @@ document.addEventListener('DOMContentLoaded', () => {
         targetElement.scrollIntoView({
           behavior: 'smooth'
         });
-        
-        // Close mobile menu if open after clicking a smooth scroll link
-        const headerContainer = document.querySelector('.header-container');
-        if (headerContainer.classList.contains('menu-open')) {
-          headerContainer.classList.remove('menu-open');
-        }
       }
     });
   });
@@ -56,4 +64,13 @@ document.addEventListener('DOMContentLoaded', () => {
       headerContainer.classList.toggle('menu-open');
     });
   }
+
+  // Close menu immediately when any link is clicked for better UX
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      if (headerContainer.classList.contains('menu-open')) {
+        headerContainer.classList.remove('menu-open');
+      }
+    });
+  });
 });

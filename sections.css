@@ -50,7 +50,7 @@
 /* Event Calendar */
 .calendar-section { padding: 6rem 0; background: var(--bg-color); }
 .event-card { background: var(--bg-secondary); padding: 1.5rem; border-left: 4px solid var(--neon-cyan); margin-bottom: 1rem; display: flex; justify-content: space-between; align-items: center; border-radius: 4px; }
-.event-date { font-family: var(--font-retro); color: var(--neon-pink); font-size: 0.8rem; margin-bottom: 0.5rem; }
+.event-date { font-family: var(--font-modern); font-weight: 600; color: var(--neon-pink); font-size: 0.9rem; margin-bottom: 0.5rem; }
 
 /* Testimonials */
 .testimonials-section { padding: 6rem 0; background: var(--bg-secondary); border-top: 1px solid var(--border-color); }
