@@ -19,6 +19,8 @@
       document.documentElement.setAttribute('data-theme', 'light');
     }
   </script>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body class="dark-theme">
 
@@ -27,8 +29,8 @@
     <div class="header-container">
       <div class="logo">
         <a href="index.html" style="display: flex; align-items: center; gap: 8px;">
-          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--neon-cyan)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="14" width="16" height="6" rx="2"></rect><path d="M12 14v-8"></path><circle cx="12" cy="4" r="2" fill="var(--neon-pink)" stroke="var(--neon-pink)"></circle></svg>
-          <span class="logo-text">ARCADE<span class="neon-pink">BAR</span></span>
+          <span class="logo-icon"><i class="fa-solid fa-gamepad" style="color: var(--neon-pink); font-size: 1.5rem;"></i></span>
+          <span class="logo-text">ARCADE<span class="neon-cyan">BAR</span></span>
         </a>
       </div>
 
@@ -70,75 +72,93 @@
       <h1>OUR SERVICES</h1>
     </section>
 
-    <!-- Full Arcade Catalog -->
-    <section class="catalog-section">
+    <!-- Retro Arcade Collection -->
+    <section class="catalog-section" style="padding: 6rem 0;">
       <div class="container">
-        <h2 class="section-title">FULL CATALOG</h2>
-        <div style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
-          <button class="toggle-btn" style="border-color: var(--neon-cyan);">FIGHTING</button>
-          <button class="toggle-btn">BEAT 'EM UP</button>
-          <button class="toggle-btn">CLASSIC</button>
-          <button class="toggle-btn">PINBALL</button>
-        </div>
+        <h2 class="section-title">Retro Arcade Collection</h2>
+        <p style="text-align: center; color: var(--text-secondary); margin-bottom: 3rem; max-width: 800px; margin-left: auto; margin-right: auto; font-size: 1.1rem; line-height: 1.6;">
+          Immerse yourself in our massive collection of authentic, fully restored arcade cabinets from the 80s and 90s. 
+          From fighting games to classic beat 'em ups, we have something for every retro enthusiast.
+        </p>
         <div class="games-grid">
-          <div class="game-card"><div class="game-info"><h3>TEKKEN 3</h3></div></div>
-          <div class="game-card"><div class="game-info"><h3>TMNT</h3></div></div>
-          <div class="game-card"><div class="game-info"><h3>X-MEN</h3></div></div>
-          <div class="game-card"><div class="game-info"><h3>DIG DUG</h3></div></div>
+          <div class="game-card">
+            <div class="game-image bg-neon-cyan">
+              <img src="https://images.unsplash.com/photo-1552820728-8b83bb6b773f?w=900&auto=format&fit=crop&q=60" style="width: 100%; height: 100%; object-fit: cover;" alt="Fighting Games">
+            </div>
+            <div class="game-info">
+              <h3>FIGHTING GAMES</h3>
+              <p>Test your skills in Street Fighter, Tekken, and Mortal Kombat.</p>
+            </div>
+          </div>
+          <div class="game-card">
+            <div class="game-image bg-neon-pink">
+              <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=900&auto=format&fit=crop&q=60" style="width: 100%; height: 100%; object-fit: cover;" alt="Pinball Machines">
+            </div>
+            <div class="game-info">
+              <h3>PINBALL MACHINES</h3>
+              <p>Experience the tactile feedback of classic analog pinball.</p>
+            </div>
+          </div>
+          <div class="game-card">
+            <div class="game-image bg-neon-purple">
+              <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?w=900&auto=format&fit=crop&q=60" style="width: 100%; height: 100%; object-fit: cover;" alt="Classic Arcades">
+            </div>
+            <div class="game-info">
+              <h3>CLASSIC MAZES & SHOOTERS</h3>
+              <p>Defend the earth or eat dots in Pac-Man, Space Invaders, and more.</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Complete Bar Menu -->
-    <section class="menu-section">
+    <!-- Cafeteria & Bar -->
+    <section class="menu-section" style="padding: 6rem 0; background-color: var(--bg-secondary); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
       <div class="container">
-        <h2 class="section-title">THE BAR MENU</h2>
-        <div class="menu-grid">
-          <div class="menu-category">
-            <h3>DRAFT BEER</h3>
-            <div class="menu-item"><span>Neon Nectar IPA</span><span style="color: var(--neon-cyan);">$8</span></div>
-            <div class="menu-item"><span>Level Up Lager</span><span style="color: var(--neon-cyan);">$6</span></div>
-            <div class="menu-item"><span>8-Bit Stout</span><span style="color: var(--neon-cyan);">$9</span></div>
+        <h2 class="section-title">Cafeteria & Neon Bar</h2>
+        <div style="display: flex; flex-wrap: wrap; gap: 4rem; align-items: center;">
+          <div style="flex: 1 1 400px; height: 400px; border-radius: 8px; overflow: hidden; border: 2px solid var(--neon-pink); box-shadow: 0 0 20px rgba(255, 0, 127, 0.2);">
+             <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=900&auto=format&fit=crop&q=60" style="width: 100%; height: 100%; object-fit: cover;" alt="Neon Bar">
           </div>
-          <div class="menu-category">
-            <h3>WINE & CIDER</h3>
-            <div class="menu-item"><span>House Red</span><span style="color: var(--neon-pink);">$10</span></div>
-            <div class="menu-item"><span>House White</span><span style="color: var(--neon-pink);">$10</span></div>
-            <div class="menu-item"><span>Dry Apple Cider</span><span style="color: var(--neon-pink);">$7</span></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Snacks Section -->
-    <section class="snacks-section">
-      <div class="container">
-        <h2 class="section-title">SNACKS & BITES</h2>
-        <div class="menu-grid">
-          <div class="menu-category">
-            <h3>SHAREABLES</h3>
-            <div class="menu-item"><span>Loaded Nachos</span><span style="color: var(--neon-purple);">$12</span></div>
-            <div class="menu-item"><span>Pretzel Bites w/ Cheese</span><span style="color: var(--neon-purple);">$9</span></div>
-            <div class="menu-item"><span>Pixel Fries</span><span style="color: var(--neon-purple);">$7</span></div>
+          <div class="menu-content" style="flex: 1 1 400px;">
+            <p style="color: var(--text-secondary); font-size: 1.1rem; margin-bottom: 2.5rem; line-height: 1.6;">Fuel up for your next game with our curated selection of craft beers on tap, retro-themed cocktails, and delicious arcade-inspired bites.</p>
+            
+            <div style="display: grid; grid-template-columns: 1fr; gap: 2rem;">
+              <div>
+                <h3 style="font-family: var(--font-retro); font-size: 0.9rem; color: var(--neon-cyan); margin-bottom: 1rem; border-bottom: 1px dashed var(--border-color); padding-bottom: 0.5rem;">CRAFT DRAFTS & COCKTAILS</h3>
+                <div style="margin-bottom: 0.5rem; display: flex; justify-content: space-between; font-weight: 600;"><span>Neon Nectar IPA</span><span style="color: var(--neon-cyan);">$8</span></div>
+                <div style="margin-bottom: 0.5rem; display: flex; justify-content: space-between; font-weight: 600;"><span>Level Up Lager</span><span style="color: var(--neon-cyan);">$6</span></div>
+                <div style="margin-bottom: 0.5rem; display: flex; justify-content: space-between; font-weight: 600;"><span>8-Bit Stout</span><span style="color: var(--neon-cyan);">$9</span></div>
+              </div>
+              <div>
+                <h3 style="font-family: var(--font-retro); font-size: 0.9rem; color: var(--neon-purple); margin-bottom: 1rem; border-bottom: 1px dashed var(--border-color); padding-bottom: 0.5rem;">SNACKS & BITES</h3>
+                <div style="margin-bottom: 0.5rem; display: flex; justify-content: space-between; font-weight: 600;"><span>Loaded Player 1 Nachos</span><span style="color: var(--neon-purple);">$12</span></div>
+                <div style="margin-bottom: 0.5rem; display: flex; justify-content: space-between; font-weight: 600;"><span>Pretzel Bites w/ Beer Cheese</span><span style="color: var(--neon-purple);">$9</span></div>
+                <div style="margin-bottom: 0.5rem; display: flex; justify-content: space-between; font-weight: 600;"><span>Pixel Fries</span><span style="color: var(--neon-purple);">$7</span></div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Event Booking Section -->
-    <section class="booking-section">
-      <div class="container booking-container">
-        <div class="booking-content">
-          <h2 class="section-title">Private Parties & Events</h2>
-          <p>Level up your next event! We offer full and partial buyouts for birthdays, corporate team-building events, and private tournaments.</p>
-          <ul style="margin-top: 1.5rem; color: var(--text-secondary); list-style-position: inside;">
+    <!-- Event Spaces Section -->
+    <section class="booking-section" style="padding: 6rem 0;">
+      <div class="container" style="display: flex; flex-wrap: wrap; gap: 4rem; align-items: center;">
+        <div class="booking-content" style="flex: 1 1 400px;">
+          <h2 class="section-title" style="text-align: left;">Private Event Spaces</h2>
+          <p style="color: var(--text-secondary); font-size: 1.1rem; margin-bottom: 1.5rem; line-height: 1.6;">Level up your next event! We offer full and partial buyouts for birthdays, corporate team-building events, and private tournaments in our dedicated neon-lit event spaces.</p>
+          <div style="border-radius: 8px; overflow: hidden; border: 2px solid var(--neon-cyan); box-shadow: 0 0 20px rgba(0, 243, 255, 0.2); height: 250px; margin-bottom: 1.5rem;">
+            <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=900&auto=format&fit=crop&q=60" style="width: 100%; height: 100%; object-fit: cover;" alt="Event Space">
+          </div>
+          <ul style="color: var(--text-secondary); list-style-position: inside; line-height: 1.8;">
             <li>Dedicated game tokens for guests</li>
-            <li>Custom catering packages available</li>
+            <li>Custom catering & bar packages</li>
             <li>Private bartender and staff</li>
             <li>Customized leaderboard screens</li>
           </ul>
         </div>
-        <form class="booking-form" onsubmit="event.preventDefault();">
+        <form class="booking-form" onsubmit="event.preventDefault();" style="flex: 1 1 400px;">
           <div class="form-group">
             <label for="name">Organizer Name</label>
             <input type="text" id="name" placeholder="Enter your name" required>
@@ -152,7 +172,7 @@
             <input type="date" id="date" required>
           </div>
           <div class="form-group">
-            <label for="guests">Party Size</label>
+            <label for="guests">Party Size & Space</label>
             <select id="guests">
               <option>10 - 20 Players (Reserved Section)</option>
               <option>21 - 50 Players (Half Buyout)</option>
@@ -163,30 +183,6 @@
         </form>
       </div>
     </section>
-
-    <!-- Merchandise Section -->
-    <section class="merch-section">
-      <div class="container">
-        <h2 class="section-title">LOOT DROP</h2>
-        <div class="merch-grid">
-          <div class="merch-card">
-            <div class="merch-img"><img src="https://plus.unsplash.com/premium_photo-1756085509463-59d0110430ba?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDMxfHx8ZW58MHx8fHx8" class="unsplash-placeholder merch" alt="Insert Unsplash URL here (Shirt Mockup)"></div>
-            <h3 style="font-family: var(--font-retro); font-size: 0.9rem; color: var(--text-primary);">Classic Logo Tee</h3>
-            <span style="color: var(--neon-cyan);">$25</span>
-          </div>
-          <div class="merch-card">
-            <div class="merch-img"><img src="https://images.unsplash.com/photo-1673644765855-7507502b6879?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDV8fHxlbnwwfHx8fHw%3D" class="unsplash-placeholder merch" alt="Insert Unsplash URL here (Hoodie Mockup)"></div>
-            <h3 style="font-family: var(--font-retro); font-size: 0.9rem; color: var(--text-primary);">Neon Nights Hoodie</h3>
-            <span style="color: var(--neon-pink);">$45</span>
-          </div>
-          <div class="merch-card">
-            <div class="merch-img"><img src="https://images.unsplash.com/photo-1668877780005-ad9a49d5011b?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Q3VzdG9tJTIwVG9rZW4lMjBTZXR8ZW58MHx8MHx8fDA%3D" class="unsplash-placeholder merch" alt="Insert Unsplash URL here (Token Mockup)"></div>
-            <h3 style="font-family: var(--font-retro); font-size: 0.9rem; color: var(--text-primary);">Custom Token Set</h3>
-            <span style="color: var(--neon-purple);">$15</span>
-          </div>
-        </div>
-      </div>
-    </section>
   </main>
 
   <footer class="footer">
@@ -194,7 +190,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <a href="index.html" style="display: flex; align-items: center; gap: 8px; margin-bottom: 1rem;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--neon-cyan)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="14" width="16" height="6" rx="2"></rect><path d="M12 14v-8"></path><circle cx="12" cy="4" r="2" fill="var(--neon-pink)" stroke="var(--neon-pink)"></circle></svg>
+            <span class="logo-icon"><i class="fa-solid fa-gamepad" style="color: var(--neon-pink); font-size: 1.2rem;"></i></span>
             <span class="logo-text">ARCADE<span class="neon-cyan">BAR</span></span>
           </a>
           <p class="footer-desc">The ultimate retro arcade bar experience. Authentic cabinets, craft tap lists, and weekly high-score glory.</p>
